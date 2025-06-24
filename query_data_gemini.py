@@ -71,8 +71,8 @@ def main():
     results = db.similarity_search_with_relevance_scores(query_text, k=RETURN_AMT)
     
     if len(results) == 0 or results[0][1] < SIMILARITY_THRESHOLD:
-        print(f"length of results: {len(results)}")
-        print(f"first result score: {results[0][1] if results else 'N/A'}")
+        #print(f"length of results: {len(results)}")
+        #print(f"first result score: {results[0][1] if results else 'N/A'}")
         print("No relevant results found.")
         return
 
