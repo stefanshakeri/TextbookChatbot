@@ -139,7 +139,7 @@ def save_to_chroma(chunks: list[Document]):
     # create a new Chroma database
     db = Chroma(
         persist_directory=CHROMA_PATH,
-        embedding_function=GoogleGenerativeAIEmbeddings()
+        embedding_function=GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     )
 
     # add documents to the database in batches
