@@ -143,7 +143,7 @@ def save_to_chroma(chunks: list[Document]):
     )
 
     # add documents to the database in batches
-    for batch in enumerate(batches(chunks), 1):
+    for batch in batches(chunks):
         db.add_documents(batch)
 
     # persist the database to disk
