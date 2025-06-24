@@ -3,12 +3,11 @@ from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import Document
 
-# gemini import
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_chroma import Chroma
 
 from dotenv import load_dotenv
-import google.generativeai as genai
+import google.genai as genai
 import tiktoken
 
 import os
@@ -18,7 +17,6 @@ import random
 # Load enviroment variables
 # - You must create a .env file, with your own GOOGLE_API_KEY
 load_dotenv()
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 enc = tiktoken.encoding_for_model("text-embedding-3-large")
 
 CHROMA_PATH = "chroma-gemini"
