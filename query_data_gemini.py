@@ -9,13 +9,14 @@ import google.genai as genai
 import argparse
 import os
 
-# Load environment variables
-CHROMA_PATH = "chroma-gemini"
+# Environment variables
+CHROMA_PATH_GEMINI = "chroma-gemini"
 
 # Load enviroment variables
 # - You must create a .env file, with your own OPENAI_API_KEY 
 load_dotenv()
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GEMINI_MODEL_NAME = "gemini-2.0-flash-001"
 
 # prompt template for the question-answering task
 PROMPT_TEMPLATE = """
@@ -54,7 +55,7 @@ def prepare_db() -> Chroma:
     """
     embedding_function = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     db = Chroma(
-        persist_directory=CHROMA_PATH,
+        persist_directory=CHROMA_PATH_GEMINI,
         embedding_function=embedding_function
     )
     return db
@@ -87,7 +88,7 @@ def main():
     # intialize the model and get the response
     client = genai.Client(api_key=GOOGLE_API_KEY)
     response_text = client.models.generate_content(
-        model="gemini-2.0-flash-001",
+        model=GEMINI_MODEL_NAME,
         contents=prompt
     )
     

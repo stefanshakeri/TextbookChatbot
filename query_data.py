@@ -16,6 +16,7 @@ CHROMA_PATH = "chroma"
 # - You must create a .env file, with your own OPENAI_API_KEY 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
+GPT_MODEL_NAME = "gpt-4o"
 
 # prompt template for the question-answering task
 PROMPT_TEMPLATE = """
@@ -82,7 +83,7 @@ def main():
     print(prompt)
 
     # intialize the model and get the response
-    model = ChatOpenAI(model_name="gpt-4o")
+    model = ChatOpenAI(model_name=GPT_MODEL_NAME)
     response_text = model.invoke(prompt)
 
     # print the response and the sources

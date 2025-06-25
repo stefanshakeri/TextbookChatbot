@@ -19,7 +19,7 @@ import random
 load_dotenv()
 enc = tiktoken.encoding_for_model("text-embedding-3-large")
 
-CHROMA_PATH = "chroma-gemini"
+CHROMA_PATH_GEMINI = "chroma-gemini"
 DATA_PATH = "data"
 FILE_TYPE = "md"
 
@@ -132,12 +132,12 @@ def save_to_chroma(chunks: list[Document]):
     :param chunks: 2d list of Document objects, each being a chunk of text from the original documents
     """
     # clear out the Chroma databse if it exists
-    if os.path.exists(CHROMA_PATH):
-        shutil.rmtree(CHROMA_PATH)
+    if os.path.exists(CHROMA_PATH_GEMINI):
+        shutil.rmtree(CHROMA_PATH_GEMINI)
     
     # create a new Chroma database
     db = Chroma(
-        persist_directory=CHROMA_PATH,
+        persist_directory=CHROMA_PATH_GEMINI,
         embedding_function=GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     )
 
@@ -147,7 +147,7 @@ def save_to_chroma(chunks: list[Document]):
 
     # persist the database to disk
     # db.persist()      # Not needed, as Chroma does this automatically with persist_directory
-    print(f"Saved {db._collection.count()} chunks to Chroma database at {CHROMA_PATH}")
+    print(f"Saved {db._collection.count()} chunks to Chroma database at {CHROMA_PATH_GEMINI}")
 
 if __name__ == "__main__":
     main()
