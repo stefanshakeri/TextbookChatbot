@@ -8,19 +8,19 @@ Clone the repository for yourself.
 pip install -r requirements.txt
 ```
 ### Step 3. Data
-Under the 'data' folder, add markdown or pdf files for whatever data you'd like. This project was tested on various machine learning textbooks, so it's built to handle large amounts of data. Update ```FILE_TYPE``` in ```create_database.py``` and ```create_database_gemini.py``` based on the file type you've chosen. 
+Under the ```data``` folder, add markdown or pdf files for whatever data you'd like. This project was tested on various machine learning textbooks, so it's built to handle large amounts of data. Update ```FILE_TYPE``` in ```create_database.py``` and ```create_database_gemini.py``` based on the file type you've chosen. 
 ### Step 4. .env
-Create your own .env file, and in it, include an 'OPENAI_API_KEY' like so: 
+Create your own ```.env``` file, and in it, include an ```OPENAI_API_KEY``` like so: 
 ```
 OPENAI_API_KEY='[enter key here]'
 ```
-For the Google Gemini files, include a 'GOOGLE_API_KEY' like so:
+For the Google Gemini files, include a ```GOOGLE_API_KEY``` like so:
 ```
 GOOGLE_API_KEY='[enter key here]'
 ```
 You can generate your own OpenAI key on their website: https://platform.openai.com/ 
 ### Step 5. Running Files
-Create and enter a virtual environment to use the requirements.txt file. 
+Create and enter a virtual environment to use the ```requirements.txt``` file. 
 To create the Chroma vector database: 
 ```
 python create_database.py
