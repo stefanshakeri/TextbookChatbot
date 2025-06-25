@@ -21,6 +21,7 @@ enc = tiktoken.encoding_for_model("text-embedding-3-large")
 
 CHROMA_PATH = "chroma-gemini"
 DATA_PATH = "data"
+FILE_TYPE = "md"
 
 # Parameters for chunk features in text splitting
 CHUNK_SIZE = 1500
@@ -55,7 +56,7 @@ def load_documents() -> list[Document]:
 
     :return: list of Document objects, each being a markdown file from 'data' directory
     """
-    document_loader = DirectoryLoader(DATA_PATH, glob="*.md")
+    document_loader = DirectoryLoader(DATA_PATH, glob=f"*.{FILE_TYPE}")
     documents = document_loader.load()
     
     return documents
