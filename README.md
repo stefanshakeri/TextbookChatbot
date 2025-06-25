@@ -1,5 +1,5 @@
 # TextbookChatbot
-A RAG OpenAI chatbot made to handle multiple textbooks as data. 
+A RAG OpenAI chatbot made to handle multiple textbooks as data. Takes either markdown or pdf files as data. 
 
 ### Step 1. Clone Repo
 Clone the repository for yourself. 
@@ -8,7 +8,7 @@ Clone the repository for yourself.
 pip install -r requirements.txt
 ```
 ### Step 3. Data
-Under the 'data' folder, add markdown files for whatever data you'd like. This project was tested on various machine learning textbooks, so it's built to handle large amounts of data. 
+Under the 'data' folder, add markdown or pdf files for whatever data you'd like. This project was tested on various machine learning textbooks, so it's built to handle large amounts of data. Update ```FILE_TYPE``` in ```create_database.py``` and ```create_database_gemini.py``` based on the file type you've chosen. 
 ### Step 4. .env
 Create your own .env file, and in it, include an 'OPENAI_API_KEY' like so: 
 ```
